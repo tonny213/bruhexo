@@ -1,0 +1,292 @@
+/* --------------------section 1------------- */
+
+:root {
+  --primary-color: #5b905b;
+  --secondary-color: #00854d;
+  --white-color: #fff;
+  --text-color: #c7c7c7;
+  --sidebar-width: 260px;
+  --space: 20px;
+}
+
+body {
+  background-image: linear-gradient(
+    to right top,
+    #00bfff,
+    #2f9bd6,
+    #3878ad,
+    #355884,
+    #2b3a5c,
+    #23325e,
+    #1d2a5f,
+    #1a215f,
+    #202787,
+    #2e2ab0,
+    #4627d8,
+    #6619ff
+  );
+  /* font-family: "DM Sans", sans-serif; */
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  background-size: cover; /* Ensure the image covers the entire background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Keep the image fixed when scrolling */
+}
+
+h1 {
+  font-size: 58px;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  margin: 6px;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #fff;
+  background-color: #0f254d;
+  background-clip: padding-box;
+  border: 1px solid #4d5258;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: #fff;
+  background-color: #0f254d;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-check:active + .btn-outline-secondary,
+.btn-check:checked + .btn-outline-secondary,
+.btn-outline-secondary.active,
+.btn-outline-secondary.dropdown-toggle.show,
+.btn-outline-secondary:active,
+.btn:active {
+  color: var(--white-color);
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+  border-color: var(--primary-color);
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white-color);
+  background-image: linear-gradient(to right, #00bfff, #6619ff);
+  padding: 0px 25px;
+  border-radius: 100px;
+  border: transparent;
+  line-height: 48px;
+  white-space: nowrap;
+  transition: all 200ms linear 0ms;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  min-width: 200px;
+  cursor: pointer;
+  height: auto;
+  box-shadow: none !important;
+  margin: 10px;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+  border: transparent;
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+}
+
+.active {
+  box-shadow: none !important;
+  border: transparent;
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+  background-attachment: fixed; /* Keep the background image fixed when scrolling */
+  color: white; /* Ensure the text is visible against the background */
+}
+
+.btn:hover,
+.btn:active {
+  /* background-image: linear-gradient(281deg, #625c70, #ae9dcd); */
+  color: var(--white-color);
+  border: transparent;
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+}
+.btnl {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white-color);
+  /* background-image: linear-gradient(281deg, #625c70, #ae9dcd); */
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+  padding: 0px 25px;
+  border-radius: 100px;
+  min-width: 200px;
+  border: transparent;
+  line-height: 48px;
+  white-space: nowrap;
+  transition: all 200ms linear 0ms;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  height: auto;
+  box-shadow: none !important;
+}
+
+.btnl:focus {
+  box-shadow: none !important;
+  border: transparent;
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+}
+
+.btnl:hover {
+  background-image: linear-gradient(281deg, #2f07b7, #0f254d);
+  color: var(--white-color);
+  border: transparent;
+}
+
+.dashboard.section1 {
+  /* background-image:  linear-gradient(180deg,#5c6cf7 -44%,#420be6 108%),#a16bb3; */
+  /* height: 100vh; */
+  padding: 10px 0px 50px;
+}
+.dashboard.section1 .exduscontainer .images svg {
+  width: 50px;
+}
+
+.displayflex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .displayflex .displayBTN {
+    padding: 0px 5px 0px 0px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .displayflex .displayBTN {
+    padding: 0px 0px 0px 20px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard.section2 .trazercontainer .trezorLeft {
+    width: 100%;
+    float: none;
+    height: auto;
+    margin-top: 0px;
+    padding: 20px;
+  }
+
+  .dashboard.section2 .trazercontainer .trezorRight {
+    width: 100%;
+    float: none;
+    height: 700px;
+    display: block;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .displayflex .displayBTN {
+      padding: 10px 20px 5px;
+    }
+
+    .displayflex.res {
+      display: ruby;
+    }
+  }
+}
+@media screen and (max-width: 360px) {
+  h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+  .left_css img {
+    padding-bottom: 30px;
+  }
+  .btn {
+    margin: 10px 0px 10px 0px;
+  }
+  h6 {
+    text-align: center;
+    color: #959595;
+  }
+  .btncss {
+    text-align: center;
+  }
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.input-grid .form-control {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btn-restore {
+  background-image: linear-gradient(to right, #00bfff, #6619ff);
+  color: var(--white-color);
+  border: transparent;
+}
+
+.btn-restore:hover {
+  background-image: linear-gradient(to right, #00bfff, #6619ff);
+  color: var(--white-color);
+  border: transparent;
+}
+
+.wraper_blackBox {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 10px;
+}
